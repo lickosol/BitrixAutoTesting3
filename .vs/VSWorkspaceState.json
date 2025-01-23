@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BitrixQAautomationLearning2025-master",
+    "\\BitrixQAautomationLearning2025-master\\ATlearning",
+    "\\BitrixQAautomationLearning2025-master\\ATlearning\\ATframework3demo",
+    "\\BitrixQAautomationLearning2025-master\\ATlearning\\ATframework3demo\\TestCases"
   ],
-  "SelectedNode": "\\C:\\Users\\\u0415\u043B\u0435\u043D\u0430\\source\\repos\\lickosol\\BitrixAutoTesting3",
+  "SelectedNode": "\\BitrixQAautomationLearning2025-master\\ATlearning\\ATframework3demo\\TestCases\\Case_Bitrix24_Settings.cs",
   "PreviewInSolutionExplorer": false
 }
