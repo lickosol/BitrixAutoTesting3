@@ -63,5 +63,14 @@ namespace atFrameWork2.PageObjects
             ClickMenuItem(btnNews);
             return new NewsPage(Driver);
         }
+
+        public AutomatisationListPage OpenAutomatisation()
+        {
+            //клик в пункт меню Автоматизация
+            var btnAutomatisation = new WebItem("//li[@id='bx_left_menu_menu_automation']", "Пункт левого меню Автоматизация");
+            ClickMenuItem(btnAutomatisation);
+            return new AutomatisationListPage(Driver);
+        }
+
     }
 }
