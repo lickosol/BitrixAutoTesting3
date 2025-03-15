@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ATframework3demo.PageObjects.BusinessProcess
 {
+    //php скрипт создания процесса Исходящие документы
     public class BusinessProcessPHP
     {
         public static int BusinessProcessCreate()
