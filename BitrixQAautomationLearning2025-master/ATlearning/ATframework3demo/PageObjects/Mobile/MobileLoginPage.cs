@@ -1,3 +1,4 @@
+using atFrameWork2.BaseFramework;
 using atFrameWork2.SeleniumFramework;
 using atFrameWork2.TestEntities;
 
@@ -15,7 +16,7 @@ namespace ATframework3demo.PageObjects.Mobile
                 "Кнопка 'введите адрес'");
             var portalAddresField = new MobileItem("//android.widget.EditText[@content-desc='signInPortalInput']",
                 "Поле для ввода адреса портала");
-            var loginField = new MobileItem("//android.widget.EditText[@content-desc='signInPortalFormPhoneInput']",
+            var loginField = new MobileItem("//android.widget.EditText[@content-desc='signInPortalFormLoginInput']", 
                 "Поле для ввода логина");
             var pwdField = new MobileItem("//android.widget.EditText[@content-desc='passwordFormInput']",
                 "Поле для ввода пароля");
@@ -29,6 +30,7 @@ namespace ATframework3demo.PageObjects.Mobile
             portalAddresField.SendKeys(portalInfo.PortalUri.ToString());
             nextBtn.Click();
 
+
             // вводим логин и дальше
             loginField.SendKeys(admin.LoginAkaEmail);
             nextBtn.Click();
@@ -36,6 +38,8 @@ namespace ATframework3demo.PageObjects.Mobile
             // вводим пароль и дальше
             pwdField.SendKeys(admin.Password, logInputtedText: false);
             nextBtn.Click();
+
+            Waiters.StaticWait_s(30);
 
             return new MobileHomePage();
         }
