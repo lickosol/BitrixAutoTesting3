@@ -2,6 +2,7 @@
 using atFrameWork2.PageObjects;
 using atFrameWork2.SeleniumFramework;
 using ATframework3demo.Assertions;
+using ATframework3demo.PageObjects;
 using ATframework3demo.PageObjects.BusinessProcess;
 using ATframework3demo.PageObjects.CreationProjectPgOb;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -26,60 +27,47 @@ namespace ATframework3demo.TestCases
 
         void CreateBusinessProcess(PortalHomePage homePage)
         {
-            // создание процесса с помощью php api 
+            //создание процесса с помощью php api 
             int processId = BusinessProcessPHP.BusinessProcessCreate();
-
-            // рефрешнуть страницу
+            //рефрешнуть страницу
             WebDriverActions.Refresh();
-
-
-
-            // перейти в левое меню
+            //перейти в левое меню
             var StartBusinessProcess = homePage
-            // перейти в левое меню
+            //перейти в левое меню
                 .LeftMenu
-
-            // открыть автоматизацию
+            //открыть автоматизацию
                 .OpenAutomatisation()
-
-            // в выпадающем меню выбрать процесс Исходящие документы
+            //в выпадающем меню выбрать процесс Исходящие документы
                 .BPOutDocList()
-
-            // выбираем нужный нам вид процесса 
+            //выбираем нужный нам вид процесса 
                 .ProcessesList()
-
-            // по id выбираем созданный процесс в текущем тесте
+            //по id выбираем созданный процесс в текущем тесте
                 .OutDocList(processId)
-
-            // запускаем процесс
+            //запускаем процесс
                 .StartedProcess();
 
-            // вернуться на автоматизацию
+            //фиксируем документ
             var FixationAndCheckBP = homePage
                 .LeftMenu
-
-            // открыть автоматизацию
+            //открыть автоматизацию
                 .OpenAutomatisation()
-
-            // нажать на БП
+            //нажать на БП
                 .OpenBP();
-
-            // ввести номер документа
+            //ввести номер документа
             var bpPage = new BusinessProcessPage();
             bpPage.FixationDocPage();
-
             // рефрешнуть страницу
             WebDriverActions.Refresh();
 
+            //проверка и очистка
             var GoToLenta = homePage
                 .LeftMenu
                 .OpenNews();
-            // проверить статус
+            //проверить статус
             BusinessProcessAssert.VerifyProcessCompleted();
-
-
+            //очистка ленты от создания новости после теста
+            var deleteNews = new NewsPage();
+            deleteNews.DeleteNews();
         }
-
-
     }
 }
