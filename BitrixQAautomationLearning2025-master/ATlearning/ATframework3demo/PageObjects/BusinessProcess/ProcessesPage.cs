@@ -12,8 +12,8 @@ namespace ATframework3demo.PageObjects.BusinessProcess
     {
         public ProcessesPage ProcessesList()
         {
-            var outgoingDocProcess = new WebItem("//a[@href='/bizproc/processes/12/view/0/?list_section_id='][contains(text(), 'исходящие документы')]",
-                "Выбираем процесс Исходящие документы");
+            var outgoingDocProcess = new WebItem("//a[@href='/bizproc/processes/12/view/0/?list_section_id='][contains(text(), 'Исходящие документы')]",
+                "выбираем процесс Исходящие документы");
             outgoingDocProcess.Click();
             return new ProcessesPage();
         }
