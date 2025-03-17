@@ -21,16 +21,25 @@ namespace ATframework3demo.TestCases
 
         void CreateTask(MobileHomePage homePage)
         {
-            var createCRMdeal = homePage.TabsPanel;
-
-            Waiters.StaticWait_s(30);
-
-            createCRMdeal.ClosePush()
+            //создание сделки
+            var createCRMdeal = homePage.TabsPanel
+                //переход в раздел "Еще"
                 .MorePanel()
+                //переход в раздел "CRM"
                 .MobileOpenCRM()
-                .MobileOpenDeals()
+                //создаем сделку
+                .MobileOpenCreationDeals()
+                //заполняем поля в сделке
                 .MobileCreateDeal();
 
+            //проверка и удаление сделки
+            var chekAndClearTest = homePage.TabsPanel
+                .MorePanel()
+                .MobileOpenCRM()
+                //проверка создания сделки
+                .MobileAssertDeal()
+                //удаление сделки
+                .MobileDealDelete();
         }
     }
 }
