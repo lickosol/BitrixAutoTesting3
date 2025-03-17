@@ -9,6 +9,7 @@ namespace ATframework3demo.PageObjects.Mobile_CRM_Deal
 {
     public class MobileMorePanel
     {
+        //переход в раздел CRM
         public MobileCrmPage MobileOpenCRM()
         {
             var btnCRM = new MobileItem("//android.widget.TextView[@resource-id='com.bitrix24.android:id/title' and @text='CRM']", "раздел CRM в разделе Еще");
