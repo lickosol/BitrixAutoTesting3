@@ -1,4 +1,5 @@
 ﻿using atFrameWork2.SeleniumFramework;
+using OpenQA.Selenium.Appium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,15 @@ using System.Threading.Tasks;
 
 namespace ATframework3demo.PageObjects.Mobile_CRM_Deal
 {
-    //поправить эту помойку
     public class MobileCRMdealPage
     {
         public MobileCRMdealPage MobileCreateDeal() 
         {
             //название сделки
-            var btnInputDealName = new MobileItem("//android.view.ViewGroup[@content-desc='deal_0_details_editor_TITLE_NAME_container']", "кнопка перехода для ввода названия сделки");
+            var btnInputDealName = new MobileItem("//android.view.ViewGroup[@content-desc='deal_0_details_editor_TITLE_CONTENT']", "кнопка перехода для ввода названия сделки");
             btnInputDealName.Click();
 
-            var inputDealName = new MobileItem("//android.view.ViewGroup[@content-desc='deal_0_details_editor_TITLE_NAME_container']", "ввод названия сделки");
+            var inputDealName = new MobileItem("//android.widget.EditText[@text='Сделка #']", "ввод названия сделки");
             inputDealName.Click();
             inputDealName.SendKeys("тест сделка");
 
@@ -29,7 +29,7 @@ namespace ATframework3demo.PageObjects.Mobile_CRM_Deal
             editDealSum.SendKeys("10000");
 
             //добавление контакта
-            var btnAddContact = new MobileItem("//android.widget.TextView[@text=Добавить контакт']", "кнопка добавления контакта");
+            var btnAddContact = new MobileItem("//android.widget.TextView[@text='Добавить контакт']", "кнопка добавления контакта");
             btnAddContact.Click();
 
             var chooseContact = new MobileItem("(//android.widget.ImageView[@content-desc='check_off'])[1]", "выбираем первый контакт");
@@ -50,10 +50,15 @@ namespace ATframework3demo.PageObjects.Mobile_CRM_Deal
             var btnSaveAboutSource = new MobileItem("//android.widget.TextView[@text='Сохранить']", "сохраняем текст об источнике");
             btnSaveAboutSource.Click();
 
+            //прокрутка вниз и добавление наблюдателя
+            var scrollToWatchers = BaseItem.DefaultDriver.FindElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"Наблюдатели\"))"));
+            scrollToWatchers.Click();
+
             //добавление наблюдателя
-            var addObserver = new MobileItem(" //android.widget.TextView[@content-desc='deal_0_details_editor_OBSERVER_NAME']",
-                "добавляем наблюдателя");
-            addObserver.Click();
+            //var addObserver = new MobileItem("//android.widget.TextView[@content-desc='deal_0_details_editor_OBSERVER_NAME']",
+            //    "добавляем наблюдателя");
+            //addObserver.Click();
 
             var chooseObserver = new MobileItem("//android.widget.ImageView[@content-desc='check_off']", "выбираем первого наблюдателя");
             chooseObserver.Click();
@@ -75,8 +80,15 @@ namespace ATframework3demo.PageObjects.Mobile_CRM_Deal
             //создаем сделку
             var btnSaveDeal = new MobileItem("//android.widget.TextView[@text='Создать']", "кнопка создать сделку");
             btnSaveDeal.Click();
+
+            //выходим из сделки
+            var btnExitFromDeal = new MobileItem("//android.widget.ImageView[@resource-id='com.bitrix24.android:id/global_icon']", "кнопка свернуть сделку");
+            btnExitFromDeal.Click();
+
+            var btnSavePush = new MobileItem("//android.widget.TextView[@text='Сохранить']", "закрыть уведомление 'забронировать следующий шаг'");
+            btnSavePush.Click();
+
             return new MobileCRMdealPage();
         }
-
     }
 }
