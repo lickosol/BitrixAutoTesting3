@@ -15,10 +15,9 @@ namespace ATframework3demo.PageObjects.Mobile
             tasksTab.Click();
 
             return new MobileTasksListPage();
-
-
         }
 
+        //синее уведомление при входе
         public MobileMainPanel ClosePush()
         {
             var clickOnScrin = new MobileItem("//androidx.recyclerview.widget.RecyclerView[@resource-id='com.bitrix24.android:id/list']", "клик убрать уведу");
@@ -26,15 +25,14 @@ namespace ATframework3demo.PageObjects.Mobile
             return new MobileMainPanel(); 
         }
 
+        //переход в раздел Еще
         public MobileMorePanel MorePanel()
         {
-            var btnMore = new MobileItem("//android.widget.FrameLayout[@content-desc='bottombar_tab_more_counter_11']",
-                "раздел Еще в нижней панели");
+            var btnMore = new MobileItem("//android.widget.TextView[@text='Ещё']",
+                "раздел Еще в нижней панели"); 
             btnMore.Click();
 
             return new MobileMorePanel();
         }
-
-
     }
 }
