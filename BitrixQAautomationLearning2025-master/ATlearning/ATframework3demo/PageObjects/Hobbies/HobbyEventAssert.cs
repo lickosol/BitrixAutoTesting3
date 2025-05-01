@@ -17,7 +17,7 @@ namespace ATframework3demo.Assertions.Hobbies
 
             Console.WriteLine($"текст последней новости: '{postText}'");
 
-            if (postText.Contains("Досуг::Новое событие:проверка ачивки"))
+            if (postText.Contains("+REP: Участник события - проверка ачивки"))
             {
                 Console.WriteLine("новость о тестовом событии найдена");
                 return true;
