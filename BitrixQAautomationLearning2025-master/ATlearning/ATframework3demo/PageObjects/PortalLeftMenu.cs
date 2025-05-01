@@ -72,5 +72,13 @@ namespace atFrameWork2.PageObjects
             return new AutomatisationListPage(Driver);
         }
 
+        public HobbyPage OpenHobbies()
+        {
+            //клик в пункт меню Досуг
+            var btnHobby = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Досуг')]", "Пункт левого меню Досуг");
+            ClickMenuItem(btnHobby);
+            return new HobbyPage(Driver);
+        }
+
     }
 }
