@@ -48,6 +48,9 @@ namespace ATframework3demo.TestCases
             //заполнение полей в окне создания события
                 .CreateEvent();
 
+            var endEvent = new HobbyPage();
+            endEvent.EndEvent();
+
             //переход в Ленту через левое меню
             homePage.LeftMenu
                 .OpenNews();
