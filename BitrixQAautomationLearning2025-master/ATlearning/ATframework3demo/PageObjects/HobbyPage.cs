@@ -43,10 +43,12 @@ namespace ATframework3demo.PageObjects
         public HobbyPage EndEvent()
         {
             var menuEvent = new WebItem("//a[@class='main-grid-row-action-button' and contains(@data-actions, 'Завершить')]", "кнопка меню три полоски");
-            menuEvent.Click();
-
             var endEvent = new WebItem("//span[@class='menu-popup-item-text' and text()='Завершить']", "тык завершить");
+            var popupAccept = new WebItem("//button[@class='ui-btn ui-btn-sm ui-btn-primary']", "кнопка ОК в попапе 'вы уверены, что хотите завершить событие?'");
+            menuEvent.Click();
             endEvent.Click();
+            popupAccept.Click();
+
 
             return new HobbyPage();
         }
