@@ -31,12 +31,9 @@ namespace ATframework3demo.PageObjects.Hobbies
             //выбор даты начала
             var dateOfBegin = new WebItem("//input[@name='START_AT']", "выбор даты начала");
             var numberOfDate = new WebItem("//a[text()='15']", "выбор числа даты начала ");
-            var btnChoice = new WebItem("//span[@class='bx-calendar-button-text' and text()='Выбрать']", "тык на кнопку выбрать в календаре");
-
             dateOfBegin.Click();
             dateOfBegin.WaitElementDisplayed();
             numberOfDate.Click();
-            btnChoice.Click();
 
             //выбор ачивки
             var openAchivesList = new WebItem("//div[@class='ui-ctl-element' and contains(text(), 'Не выдавать')]", "тык на выбор ачивки");
@@ -52,6 +49,7 @@ namespace ATframework3demo.PageObjects.Hobbies
             //переход на родительский фрейм для закрытия окна создания события
             var newFrame = new WebItem("//iframe[contains(@id, 'iframe_c2arcz45g0')]", "новый iframe после создания события");
             newFrame.WaitElementDisplayed();
+
             BaseItem.DefaultDriver.SwitchTo().DefaultContent();
 
             //тык на закрыть окно
