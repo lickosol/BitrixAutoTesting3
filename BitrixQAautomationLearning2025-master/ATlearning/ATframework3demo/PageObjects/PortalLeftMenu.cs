@@ -80,5 +80,20 @@ namespace atFrameWork2.PageObjects
             return new HobbyPage(Driver);
         }
 
+        public MessengerPage OpenChats()
+        {
+            //клик в пункт меню Мессенджер
+            var btnMessenger = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Мессенджер')]", "Пункт левого меню Досуг");
+            ClickMenuItem(btnMessenger);            
+            return new MessengerPage(Driver);
+        }
+
+        public CalendarPage OpenCalendar()
+        {
+            //клик в пункт меню Мессенджер
+            var btnCalendar = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Календарь')]", "Пункт левого меню Календарь");
+            ClickMenuItem(btnCalendar);
+            return new CalendarPage(Driver);
+        }
     }
 }
