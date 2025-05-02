@@ -44,11 +44,23 @@ namespace ATframework3demo.PageObjects
         {
             var menuEvent = new WebItem("//a[@class='main-grid-row-action-button' and contains(@data-actions, 'Завершить')]", "кнопка меню три полоски");
             var endEvent = new WebItem("//span[@class='menu-popup-item-text' and text()='Завершить']", "тык завершить");
-            var popupAccept = new WebItem("//button[@class='ui-btn ui-btn-sm ui-btn-primary']", "кнопка ОК в попапе 'вы уверены, что хотите завершить событие?'");
+            var popupAccept = new WebItem("//button[@class='ui-btn ui-btn-sm ui-btn-primary']", "кнопка ОК в попапе 'вы уверены'");
             menuEvent.Click();
             endEvent.Click();
             popupAccept.Click();
 
+            return new HobbyPage();
+        }
+
+        //удаление события
+        public HobbyPage DeleteEvent()
+        {
+            var menuEvent = new WebItem("//a[@class='main-grid-row-action-button' and contains(@data-actions, 'Удалить')]", "кнопка меню три полоски");
+            var endEvent = new WebItem("//span[@class='menu-popup-item-text' and text()='Завершить']", "тык удалить");
+            var popupAccept = new WebItem("//button[@class='ui-btn ui-btn-sm ui-btn-primary']", "кнопка ОК в попапе 'вы уверены'");
+            menuEvent.Click();
+            endEvent.Click();
+            popupAccept.Click();
 
             return new HobbyPage();
         }
