@@ -16,7 +16,7 @@ namespace ATframework3demo.PageObjects.Hobbies
             //ввод названия
             var addName = new WebItem("//input[@id='name_text']", "добавление названия");
             addName.Click();
-            addName.SendKeys("проверка ачивки");
+            addName.SendKeys("тестовое событие");
 
             //добавление описания
             var addDescription = new WebItem("//textarea[@id='description_text']", "ввод текста описания");
