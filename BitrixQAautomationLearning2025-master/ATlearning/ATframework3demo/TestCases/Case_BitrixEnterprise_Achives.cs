@@ -75,13 +75,17 @@ namespace ATframework3demo.TestCases
                 throw new Exception($"ошибка: Количество ачивок 'Успех' некорректное. Было: {initialThumbsUpCount}, стало: {updatedThumbsUpCount}");
             }
 
+            //очистка календаря от тестового события
+            homePage.LeftMenu
+                .OpenCalendar()
+                .DeleteEventFromCalendar();
+
+            WebDriverActions.Refresh();
+
             //очистка ленты от новости о тестовом событии
-            var newsPage = new NewsPage();
-            newsPage.DeleteAchiveNews();
-
+            homePage.LeftMenu
+                .OpenNews()
+                .DeleteAchiveNews();
         }
-
     }
-
-
 }
