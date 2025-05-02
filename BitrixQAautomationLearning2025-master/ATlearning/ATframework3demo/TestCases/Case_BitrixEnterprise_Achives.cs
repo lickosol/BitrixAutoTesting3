@@ -16,8 +16,6 @@ namespace ATframework3demo.TestCases
 {
     internal class Case_BitrixEnterprise_Achives : CaseCollectionBuilder
     {
-
-
         protected override List<TestCase> GetCases()
         {
             var caseCollection = new List<TestCase>();
@@ -25,12 +23,8 @@ namespace ATframework3demo.TestCases
             return caseCollection;
         }
 
-
-
         void GetAchives(PortalHomePage homePage)
         {
-
-
             //открыть профиль и получить текущее количество ачивок "Успех"
             var profilePage = new ProfilePage();
             profilePage.OpenProfile();
