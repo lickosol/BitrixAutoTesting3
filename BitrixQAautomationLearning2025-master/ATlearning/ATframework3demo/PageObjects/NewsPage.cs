@@ -51,12 +51,13 @@ namespace ATframework3demo.PageObjects
             Console.WriteLine("очистка новостей от тестовой ачивки");
 
             DeleteLastNews();
+            WebDriverActions.Refresh();
+            DeleteLastNews();
 
             //проверка, что новость об ачивке исчезла
             var lastFeedText = new WebItem("//div[contains(@class, 'feed-post-text-block')]", "текст последней новости");
-            string postText = lastFeedText.GetAttribute("innerText").Trim();
-
             var lastFeedTime = new WebItem("//div[@class='feed-time']", "Время последней новости");
+            string postText = lastFeedText.GetAttribute("innerText").Trim();
             string feedTimeText = lastFeedTime.GetAttribute("innerText").Trim();
 
             Console.WriteLine($"текст последней новости после удаления: {postText}");
@@ -99,7 +100,7 @@ namespace ATframework3demo.PageObjects
             var btnContextMenuNews = new WebItem("//div[@class='feed-post-right-top-menu']", "контекстное меню новости через три точки");
             btnContextMenuNews.Click();
 
-            var btnDeleteNews = new WebItem("//span[contains(@class, 'menu-popup-item')]/span[contains(@class, 'menu-popup-item-text') and text()='Удалить']", "удалить новость");
+            var btnDeleteNews = new WebItem("//span[@class='menu-popup-item-text' and text()='Удалить']", "удалить новость");
             btnDeleteNews.Click();
 
             WebDriverActions.BrowserAlert(true);
