@@ -83,7 +83,7 @@ namespace atFrameWork2.PageObjects
         public MessengerPage OpenChats()
         {
             //клик в пункт меню Мессенджер
-            var btnMessenger = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Мессенджер')]", "Пункт левого меню Досуг");
+            var btnMessenger = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Мессенджер')]", "Пункт левого меню Мессенджер");
             ClickMenuItem(btnMessenger);            
             return new MessengerPage(Driver);
         }
