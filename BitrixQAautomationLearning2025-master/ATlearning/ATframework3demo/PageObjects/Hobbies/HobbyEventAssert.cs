@@ -12,10 +12,10 @@ namespace ATframework3demo.Assertions.Hobbies
     {
         public static bool VerifyAchiveNewsCreated()
         {
-            WebItem lastFeedText = new WebItem("//div[contains(@class, 'feed-post-text-block')]", "проверка текста последней новости");
+            WebItem lastFeedText = new WebItem("//div[contains(@class, 'feed-post-text-block')]", "проверка текста искомой новости");
             string postText = lastFeedText.GetAttribute("innerText").Trim();
 
-            Console.WriteLine($"текст последней новости: '{postText}'");
+            Console.WriteLine($"текст искомой новости: '{postText}'");
 
             if (postText.Contains("+REP: Участник события - тестовое событие"))
             {
