@@ -95,5 +95,13 @@ namespace atFrameWork2.PageObjects
             ClickMenuItem(btnCalendar);
             return new CalendarPage(Driver);
         }
+
+        public CreationEventFramePage OpenCreationEventFrame()
+        {
+            //клик в пункт меню Мессенджер
+            var btnCalendar = new WebItem("//span[contains(@class, 'menu-item-link-text') and contains(text(), 'Создать событие')]", "Пункт левого меню Календарь");
+            ClickMenuItem(btnCalendar);
+            return new CreationEventFramePage(Driver);
+        }
     }
 }
