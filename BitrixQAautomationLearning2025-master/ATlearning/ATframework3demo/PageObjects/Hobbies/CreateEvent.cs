@@ -58,5 +58,38 @@ namespace ATframework3demo.PageObjects.Hobbies
 
             return new HobbyPage();
         }
+
+        public HobbyPage AddCreationFrameInLeftMenu()
+        {
+            //элемент-звезда
+            var starButton = new WebItem("//span[@id='uiToolbarStar']", "кнопка звезды (добавить в левое меню)");
+
+            //получение значения title
+            string starTitle = starButton.GetAttribute("title");
+
+            //проверка значения title
+            if (starTitle == "добавить текущую страницу в левое меню")
+            {
+                Console.WriteLine("нажимаем на звезду — добавляем в левое меню");
+                starButton.Click();
+            }
+            else
+            {
+                Console.WriteLine("страница уже добавлена в левое меню => переходим к закрытию окна создания события");
+            }
+
+
+            //переход в родительский фрейм
+            var newFrame = new WebItem("//iframe[contains(@id, 'iframe_c2arcz45g0')]", "iframe после создания события");
+            newFrame.WaitElementDisplayed();
+
+            BaseItem.DefaultDriver.SwitchTo().DefaultContent();
+
+            //тык на закрыть окно
+            var closeFrame = new WebItem("//div[@class='side-panel-label-icon-box' and @title='Закрыть']", "кнопка 'Закрыть' окно");
+            closeFrame.Click();
+
+            return new HobbyPage(); 
+        }
     }
 }
