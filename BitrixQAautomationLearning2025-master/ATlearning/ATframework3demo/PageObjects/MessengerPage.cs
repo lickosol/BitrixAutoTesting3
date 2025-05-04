@@ -17,6 +17,10 @@ namespace ATframework3demo.PageObjects
 
         public IWebDriver Driver { get; }
 
+        /// <summary>
+        /// Открытие чата события
+        /// </summary>
+        /// <returns></returns>
         public MessengerPage OpenTestChat()
         {
             var openEvetnsChat = new WebItem("//span[@class='bx-im-chat-title__text' and text()='Досуг :: тестовое событие']", "открыть чат события");
@@ -24,6 +28,11 @@ namespace ATframework3demo.PageObjects
             return this;
         }
 
+
+        /// <summary>
+        /// Получение текста первого сообщения в чате
+        /// </summary>
+        /// <returns></returns>
         public string GetFirstMessageText()
         {
             var firstMessage = new WebItem("//div[contains(@class,'bx-im-message-default-content__text')]", "первое сообщение в чате");
@@ -31,6 +40,11 @@ namespace ATframework3demo.PageObjects
             return firstMessage.InnerText();
         }
 
+
+        /// <summary>
+        /// Закрытие мессенджера
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage CloseMessenger()
         {
             var btnClose = new WebItem("//div[@class='bx-im-navigation__close']", "кнопка закрытия мессенджера");

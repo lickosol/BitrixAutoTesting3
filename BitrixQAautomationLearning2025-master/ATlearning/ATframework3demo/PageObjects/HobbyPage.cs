@@ -19,7 +19,10 @@ namespace ATframework3demo.PageObjects
 
         public IWebDriver Driver { get; }
 
-        //создание нового события
+        /// <summary>
+        /// Создание нового события
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage OpenHobbyPage()
         {
             //пейдж модуля досуг
@@ -29,7 +32,10 @@ namespace ATframework3demo.PageObjects
             return new HobbyPage();
         }
 
-        //пейдж создания события
+        /// <summary>
+        /// Пейдж создания события
+        /// </summary>
+        /// <returns></returns>
         public CreateEventPage OpenEventFrame()
         {
             var createEventFrame = new WebItem("//iframe[contains(@id, 'iframe')]", "переключаемся на фрейм создания события");
@@ -39,7 +45,10 @@ namespace ATframework3demo.PageObjects
             return new CreateEventPage();
         }
 
-        //завершение события
+        /// <summary>
+        /// Завершение события
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage EndEvent()
         {
             var menuEvent = new WebItem("//a[@class='main-grid-row-action-button' and contains(@data-actions, 'Завершить')]", "кнопка меню три полоски");
@@ -52,7 +61,10 @@ namespace ATframework3demo.PageObjects
             return new HobbyPage();
         }
 
-        //удаление события
+        /// <summary>
+        /// Удаление события
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage DeleteEvent()
         {
             var menuEvent = new WebItem("//a[@class='main-grid-row-action-button' and contains(@data-actions, 'Удалить')]", "кнопка меню три полоски");

@@ -9,6 +9,10 @@ namespace ATframework3demo.PageObjects.Hobbies
 {
     public class ProfilePage
     {
+        /// <summary>
+        /// Метод открытия профиля пользователя
+        /// </summary>
+        /// <returns></returns>
         public ProfilePage OpenProfile()
         {
             var btnProfile = new WebItem("//span[@id='user-name' and @class='user-name']", "тык на профиль");
@@ -24,7 +28,11 @@ namespace ATframework3demo.PageObjects.Hobbies
             return this;
         }
 
-        //получить текущее количество ачивок "Успех" (находясь внутри iframe профиля)
+        /// <summary>
+        /// Получить текущее количество ачивок "Успех" (находясь внутри iframe профиля)
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public int GetThumbsUpAchiveCount()
         {
             var thumbsUpCounter = new WebItem(
@@ -45,7 +53,9 @@ namespace ATframework3demo.PageObjects.Hobbies
             }
         }
 
-        //закрыть окно профиля и вернуться в дефолтный фрейм
+        /// <summary>
+        /// Закрыть окно профиля и вернуться в дефолтный фрейм
+        /// </summary>
         public void CloseProfile()
         {
             //вернуться в дефолтный фрейм
@@ -55,7 +65,13 @@ namespace ATframework3demo.PageObjects.Hobbies
             closeButton.Click();
         }
 
-        //вспомогательный метод: ожидание появления текста
+        /// <summary>
+        /// Вспомогательный метод: ожидание появления текста
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="timeoutSeconds"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         private string WaitForInnerText(WebItem element, int timeoutSeconds = 5)
         {
             string text = "";

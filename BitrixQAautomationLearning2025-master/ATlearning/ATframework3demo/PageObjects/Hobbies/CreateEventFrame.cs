@@ -9,7 +9,10 @@ namespace ATframework3demo.PageObjects.Hobbies
 {
     public class CreateEventFrame
     {
-        //переход на фрейм создания события
+        /// <summary>
+        /// Переход на фрейм создания события
+        /// </summary>
+        /// <returns></returns>
         protected CreateEventPage SwitchToCreationEventFrame()
         {
             var createEventFrame = new WebItem("//iframe[contains(@id, 'iframe')]", "переключаемся на фрейм создания события");

@@ -19,6 +19,10 @@ namespace ATframework3demo.PageObjects
 
         public IWebDriver Driver { get; }
 
+        /// <summary>
+        /// Создание события, если окно добавлено в левое меню
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage CreateEventFromLeftMenu()
         {
             var createEventFrame = new WebItem("//iframe[contains(@id, 'iframe')]", "переключаемся на фрейм создания события");

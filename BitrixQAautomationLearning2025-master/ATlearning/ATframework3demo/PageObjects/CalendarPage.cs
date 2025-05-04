@@ -18,7 +18,10 @@ namespace ATframework3demo.PageObjects
 
         public IWebDriver Driver { get; }
 
-        //удаление события из календаря
+        /// <summary>
+        /// Удаление события из календаря
+        /// </summary>
+        /// <returns></returns>
         public CalendarPage DeleteEventFromCalendar()
         {
             var choiceTestEvent = new WebItem("//span[contains(text(), 'Досуг') and contains(text(), 'тестовое событие')]", "выбор тестового события");
