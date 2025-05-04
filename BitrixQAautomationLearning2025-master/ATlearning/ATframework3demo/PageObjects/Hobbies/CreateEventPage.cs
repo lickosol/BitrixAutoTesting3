@@ -9,10 +9,12 @@ namespace ATframework3demo.PageObjects.Hobbies
 {
     public class CreateEventPage : CreateEventFrame
     {
+        /// <summary>
+        /// Метод создания события в iframe "Создать событие"
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage CreateEvent()
         {
-
-
             //ввод названия
             var addName = new WebItem("//input[@id='name_text']", "добавление названия");
             addName.Click();
@@ -59,6 +61,10 @@ namespace ATframework3demo.PageObjects.Hobbies
             return new HobbyPage();
         }
 
+        /// <summary>
+        /// Метод добавления iframe Создать событие в левое меню нажатием на кнопку Избранное
+        /// </summary>
+        /// <returns></returns>
         public HobbyPage AddCreationFrameInLeftMenu()
         {
             //элемент-звезда
